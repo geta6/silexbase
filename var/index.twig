@@ -14,12 +14,15 @@
 
   <body>
 
-    <div>
-      <span class='float left'>Menu Left</span>
-      <span class='float right'>Menu Right</span>
-    </div>
+    {% block mainbody %}
 
-    <h1>title</h1>
+      <h1>Silex Base Template</h1>
+
+      {{ 'This is Markdown' | markdown }}
+
+      {{ 'translate' | trans }}
+
+    {% endblock %}
 
     <script src='/src/scripts.js'></script>
 

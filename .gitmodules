@@ -1,0 +1,12 @@
+[submodule "lib/assetic"]
+	path = lib/assetic
+	url = https://github.com/kriswallsmith/assetic
+[submodule "lib/twig"]
+	path = lib/twig
+	url = git://github.com/fabpot/Twig.git
+[submodule "lib/markdown/Knp/Bundle/MarkdownBundle"]
+	path = lib/markdown/Knp/Bundle/MarkdownBundle
+	url = https://github.com/KnpLabs/KnpMarkdownBundle
+[submodule "lib/symfony"]
+	path = lib/symfony
+	url = https://github.com/symfony/symfony

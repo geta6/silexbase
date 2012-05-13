@@ -20,6 +20,8 @@ $app->register(new SilexExtension\PdoProvider());
 
 $app->register(new SilexExtension\ApcProvider());
 
+$app->register(new SilexExtension\MarkdownProvider());
+
 $app->register(new SilexExtension\AsseticProvider(), array(
   'assetic.options' => array('debug' => $app['debug']),
   'assetic.filters' => $app->protect(function($fm) use ($app) {
@@ -48,5 +50,18 @@ $app->register(new SilexExtension\AsseticProvider(), array(
     $am->get('mb')->setTargetPath($app['assetic.output_mb']);
   })
 ));
+
+
+$app->before(function (Symfony\Component\HttpFoundation\Request $req) use ($app) {
+  $app['session']->start();
+  $app['locale'] = (null != $app['session']->get('locale'))
+    ? $app['session']->get('locale') : 'ja-jp';
+  $app->register(new Silex\Provider\TranslationServiceProvider(), array(
+    'locale_fallback' => $app['locale']
+  ));
+  $app['translator.loader']  = new Symfony\Component\Translation\Loader\YamlFileLoader();
+  $app['twig']->addExtension(new Symfony\Bridge\Twig\Extension\TranslationExtension($app['translator']));
+});
+
 
 return $app;

@@ -14,7 +14,7 @@ $app['root.views']   = __DIR__ . '/../var';
 $app['root.web']     = __DIR__ . '/../web';
 
 // Class Path
-$app['autoloader']->registerNamespace('Symfony', $app['root.vendor'] . '/assetic/vendor/symfony/process');
+$app['autoloader']->registerNamespace('Symfony', $app['root.vendor'] . '/symfony/src');
 $app['autoloader']->registerNamespace('SilexExtension', $app['root.vendor'] . '/extension/src');
 
 // Twig
@@ -25,6 +25,14 @@ $app['twig.path']        = $app['root.views'];
 // Http
 $app['http_cache.cache_dir']  = $app['root.cache'] . '/http';
 
+// Locale
+$app['locale'] = 'ja-jp';
+$app['session.default_locale'] = $app['locale'];
+$app['translator.messages']    = array(
+  'ja-jp' => $app['root.source'] . '/locale/ja-jp.yml',
+  'en-us' => $app['root.source'] . '/locale/en-us.yml',
+);
+
 // Database
 $app['pdo.options']  = array(
   'driver'    => 'mysql',
@@ -34,6 +42,9 @@ $app['pdo.options']  = array(
   'password'  => '',
   'debug'     => false,
 );
+
+// Markdown
+$app['markdown.class_path']  = $app['root.vendor'] . '/markdown';
 
 // Apc
 $app['apc.options']  = array(
