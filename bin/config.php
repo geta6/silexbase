@@ -57,8 +57,9 @@ $app['assetic.class_path']    = $app['root.vendor'] . '/assetic/src';
 $app['assetic.path_to_web']   = $app['root.web'] . '/src';
 $app['assetic.cache_path']    = $app['root.cache'] . '/assetic';
 
-$app['assetic.path_to_yui']   = '/usr/share/yui-compressor/yui-compressor.jar';
-$app['assetic.path_to_node']  = '/usr/bin/node';
+$app['assetic.path_to_yui']          = '/usr/share/yui-compressor/yui-compressor.jar';
+$app['assetic.path_to_node']         = '/usr/bin/node';
+$app['assetic.path_to_node_modules'] = '/usr/local/lib/node_modules';
 
 $app['assetic.input_css']     = $app['root.source'] . '/css/*.css';
 $app['assetic.input_less']    = $app['root.source'] . '/css/*.less';

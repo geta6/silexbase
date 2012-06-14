@@ -25,7 +25,7 @@ $app->register(new SilexExtension\MarkdownProvider());
 $app->register(new SilexExtension\AsseticProvider(), array(
   'assetic.options' => array('debug' => $app['debug']),
   'assetic.filters' => $app->protect(function($fm) use ($app) {
-    $fm->set('less', new Assetic\Filter\LessFilter($app['assetic.path_to_node']));
+    $fm->set('less', new Assetic\Filter\LessFilter($app['assetic.path_to_node'], array($app['assetic.path_to_node_modules'])));
     $fm->set('css',  new Assetic\Filter\Yui\CssCompressorFilter($app['assetic.path_to_yui']));
     $fm->set('js',   new Assetic\Filter\Yui\JsCompressorFilter($app['assetic.path_to_yui']));
   }),
